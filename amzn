@@ -1,0 +1,29 @@
+def faktoriyelHesapla(i):    
+    if i==1:       
+        return 1    
+    else: 
+        return i * faktoriyelHesapla(i-1)    
+def hesapla(bs,es1):
+    ihtimal=0
+    a=0
+    t=1
+    c=2
+    for x in range(1,es1+1):
+        t=(bs-(x*c))
+        if t<=0:
+            t==es1+1
+            a= faktoriyelHesapla(x)/faktoriyelHesapla(x)            
+        else:
+            a= faktoriyelHesapla(t+x)/(faktoriyelHesapla(t)*faktoriyelHesapla(x))
+        ihtimal+=a    
+    return ihtimal
+
+n = int(input("Merdiven Kaç Basamaklı :")) 
+if (n%2==0):
+    es=int(n/2)
+    print("{} Basamaklı merdiveni 2 şer ve 1 er en fazla : {} farklı şekilde çıkarsınız".format(n,int(hesapla(n,es)+1)))
+else:
+    es=int((n+1)/2)
+    print("{} Basamaklı merdiveni 2 şer ve 1 er en fazla : {} farklı şekilde çıkarsınız".format(n,int(hesapla(n,es))))
+    #print("Basamak: {} , {}     :".format(n,es),int(hesapla(n,es)))
+
